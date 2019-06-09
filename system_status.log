@@ -1,0 +1,39 @@
+DEBUG:selenium.webdriver.remote.remote_connection:POST http://127.0.0.1:51667/session {"capabilities": {"alwaysMatch": {"goog:chromeOptions": {"args": [], "extensions": []}, "browserName": "chrome", "platformName": "any"}, "firstMatch": [{}]}, "desiredCapabilities": {"goog:chromeOptions": {"args": [], "extensions": []}, "platform": "ANY", "browserName": "chrome", "version": ""}}
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): 127.0.0.1:51667
+DEBUG:urllib3.connectionpool:http://127.0.0.1:51667 "POST /session HTTP/1.1" 200 1028
+DEBUG:selenium.webdriver.remote.remote_connection:Finished Request
+DEBUG:selenium.webdriver.remote.remote_connection:POST http://127.0.0.1:51667/session/901785e2a2360a6ee6c2d0b4014b1f37/url {"url": "http://206.123.141.137:1001/login/", "sessionId": "901785e2a2360a6ee6c2d0b4014b1f37"}
+DEBUG:urllib3.connectionpool:http://127.0.0.1:51667 "POST /session/901785e2a2360a6ee6c2d0b4014b1f37/url HTTP/1.1" 200 72
+DEBUG:selenium.webdriver.remote.remote_connection:Finished Request
+DEBUG:selenium.webdriver.remote.remote_connection:POST http://127.0.0.1:51667/session/901785e2a2360a6ee6c2d0b4014b1f37/element {"using": "id", "sessionId": "901785e2a2360a6ee6c2d0b4014b1f37", "value": "login_input_username"}
+DEBUG:urllib3.connectionpool:http://127.0.0.1:51667 "POST /session/901785e2a2360a6ee6c2d0b4014b1f37/element HTTP/1.1" 200 102
+DEBUG:selenium.webdriver.remote.remote_connection:Finished Request
+DEBUG:selenium.webdriver.remote.remote_connection:POST http://127.0.0.1:51667/session/901785e2a2360a6ee6c2d0b4014b1f37/element {"using": "id", "sessionId": "901785e2a2360a6ee6c2d0b4014b1f37", "value": "login_input_password"}
+DEBUG:urllib3.connectionpool:http://127.0.0.1:51667 "POST /session/901785e2a2360a6ee6c2d0b4014b1f37/element HTTP/1.1" 200 102
+DEBUG:selenium.webdriver.remote.remote_connection:Finished Request
+DEBUG:selenium.webdriver.remote.remote_connection:POST http://127.0.0.1:51667/session/901785e2a2360a6ee6c2d0b4014b1f37/element/0.4404084257104355-1/value {"text": "user", "sessionId": "901785e2a2360a6ee6c2d0b4014b1f37", "id": "0.4404084257104355-1", "value": ["u", "s", "e", "r"]}
+DEBUG:urllib3.connectionpool:http://127.0.0.1:51667 "POST /session/901785e2a2360a6ee6c2d0b4014b1f37/element/0.4404084257104355-1/value HTTP/1.1" 200 72
+DEBUG:selenium.webdriver.remote.remote_connection:Finished Request
+DEBUG:selenium.webdriver.remote.remote_connection:POST http://127.0.0.1:51667/session/901785e2a2360a6ee6c2d0b4014b1f37/element/0.4404084257104355-2/value {"text": "user", "sessionId": "901785e2a2360a6ee6c2d0b4014b1f37", "id": "0.4404084257104355-2", "value": ["u", "s", "e", "r"]}
+DEBUG:urllib3.connectionpool:http://127.0.0.1:51667 "POST /session/901785e2a2360a6ee6c2d0b4014b1f37/element/0.4404084257104355-2/value HTTP/1.1" 200 72
+DEBUG:selenium.webdriver.remote.remote_connection:Finished Request
+DEBUG:selenium.webdriver.remote.remote_connection:POST http://127.0.0.1:51667/session/901785e2a2360a6ee6c2d0b4014b1f37/element {"using": "id", "sessionId": "901785e2a2360a6ee6c2d0b4014b1f37", "value": "button-login"}
+DEBUG:urllib3.connectionpool:http://127.0.0.1:51667 "POST /session/901785e2a2360a6ee6c2d0b4014b1f37/element HTTP/1.1" 200 102
+DEBUG:selenium.webdriver.remote.remote_connection:Finished Request
+DEBUG:selenium.webdriver.remote.remote_connection:POST http://127.0.0.1:51667/session/901785e2a2360a6ee6c2d0b4014b1f37/element/0.4404084257104355-3/click {"sessionId": "901785e2a2360a6ee6c2d0b4014b1f37", "id": "0.4404084257104355-3"}
+DEBUG:urllib3.connectionpool:http://127.0.0.1:51667 "POST /session/901785e2a2360a6ee6c2d0b4014b1f37/element/0.4404084257104355-3/click HTTP/1.1" 200 72
+DEBUG:selenium.webdriver.remote.remote_connection:Finished Request
+DEBUG:selenium.webdriver.remote.remote_connection:POST http://127.0.0.1:51667/session/901785e2a2360a6ee6c2d0b4014b1f37/element {"using": "id", "sessionId": "901785e2a2360a6ee6c2d0b4014b1f37", "value": "button-save-image"}
+DEBUG:urllib3.connectionpool:http://127.0.0.1:51667 "POST /session/901785e2a2360a6ee6c2d0b4014b1f37/element HTTP/1.1" 200 103
+DEBUG:selenium.webdriver.remote.remote_connection:Finished Request
+DEBUG:selenium.webdriver.remote.remote_connection:POST http://127.0.0.1:51667/session/901785e2a2360a6ee6c2d0b4014b1f37/element/0.48110891998138317-1/click {"sessionId": "901785e2a2360a6ee6c2d0b4014b1f37", "id": "0.48110891998138317-1"}
+DEBUG:urllib3.connectionpool:http://127.0.0.1:51667 "POST /session/901785e2a2360a6ee6c2d0b4014b1f37/element/0.48110891998138317-1/click HTTP/1.1" 200 72
+DEBUG:selenium.webdriver.remote.remote_connection:Finished Request
+INFO:root:Image capture for 206.123.141.137:1001 successful...
+DEBUG:selenium.webdriver.remote.remote_connection:DELETE http://127.0.0.1:51667/session/901785e2a2360a6ee6c2d0b4014b1f37 {"sessionId": "901785e2a2360a6ee6c2d0b4014b1f37"}
+DEBUG:urllib3.connectionpool:http://127.0.0.1:51667 "DELETE /session/901785e2a2360a6ee6c2d0b4014b1f37 HTTP/1.1" 200 72
+DEBUG:selenium.webdriver.remote.remote_connection:Finished Request
+INFO:root:Running command 'ssh -t fliruser@206.123.141.137 -p 2002 'rm -r images && mkdir images && cp /FLIR/images/* ./images''
+INFO:root:ssh command for 206.123.141.137:2002 successful...
+INFO:root:Running command 'scp -P 2002 -r fliruser@206.123.141.137:images /mnt/c/Users/sanja/Desktop/senal_project/'
+INFO:root:scp command for 206.123.141.137:2002 successful...

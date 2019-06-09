@@ -1,0 +1,18 @@
+Assuming computer is A and camera is B
+
+-----------------------------------------------------------------------------------------
+| ### only run this if computer is brand new. If at least one camera has been connected |  
+| ### at some point in time, dont run this                                              |
+| ssh-keygen –t rsa                                                                     |
+| ### Hit enter and use blank password for input                                        |
+-----------------------------------------------------------------------------------------
+
+# connect to camera B
+# ssh fliruser@192.168.0.11 -p 2002 'mkdir -p .ssh'
+ssh fliruser@<ipaddress of B> -p <port_number of B> 'mkdir -p .ssh'
+
+# copy public key to B from A
+# replace port number of B at -P 
+# replace ip address of B after @
+# cat .ssh/id_rsa.pub | ssh fliruser@<192.168.0.11> -p <2002> 'cat >> .ssh/authorized_keys'
+cat .ssh/id_rsa.pub | ssh fliruser@<ipaddress of B> -p <port_number of B> 'cat >> .ssh/authorized_keys'
