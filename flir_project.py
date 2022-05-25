@@ -10,18 +10,18 @@ from addresses import *
 
 logging.basicConfig(filename = log_file_name, level = logging.DEBUG)
 
-while (True):
+while True:
   for ip_address_value in ip_addresses_list:
     colon_position = ip_address_value.find(':')
     ip_address = ip_address_value[:colon_position + 1]
     port = ip_address_value[colon_position:]
-    
+
     error_flag = False
-    
+
     print(">> Opening browser...\n")
     try:
       driver = webdriver.Chrome('./chromedriver74.exe')
-      driver.get("http://" + ip_address_value + "/login/")
+      driver.get(f"http://{ip_address_value}/login/")
     except:
       error_message = error_report("webdriver") + " - " + sys.exc_info()[0]
       logging.critical(error_message)
@@ -37,8 +37,9 @@ while (True):
       error_message = error_report("up") + " - " + sys.exc_info()[0]
       logging.critical(error_message)
       error_flag = True
-    
-    print(">> Waiting for " + str(time_to_sleep_between_button_presses) + " seconds...\n")
+
+    print(f">> Waiting for {str(time_to_sleep_between_button_presses)}" +
+          " seconds...\n")
     time.sleep(time_to_sleep_between_button_presses)
 
     print(">> Pressing 'Login' button...\n")
@@ -50,23 +51,24 @@ while (True):
       logging.critical(error_message)
       error_flag = True
 
-    print(">> Waiting for " + str(time_to_sleep_between_button_presses) + " seconds...\n")
+    print(f">> Waiting for {str(time_to_sleep_between_button_presses)}" +
+          " seconds...\n")
     time.sleep(time_to_sleep_between_button_presses)
-      
+
     print(">> Pressing 'Capture' button...\n")
     try:
       driver.find_element_by_id('button-save-image').click()
       print(">> Capture successful...\n")
-      logging.info("Image capture for " + ip_address_value + " successful...")
+      logging.info(f"Image capture for {ip_address_value} successful...")
     except:
       error_message = error_report("capture-button") + " - " + sys.exc_info()[0]
       logging.critical(error_message)
       error_flag = True
-    
+
     print(">> Closing browser...\n")
     driver.quit()
 
-    if (error_flag == True):
+    if error_flag:
       print("Error ", sys.exc_info()[0] , " occured.")
       print("Check log file for details")
       print()
@@ -78,7 +80,7 @@ while (True):
 
     error_flag = False
 
-    command_line = "ssh -t fliruser@" + ssh_address + " -p " + port + " 'rm -r images"
+    command_line = f"ssh -t fliruser@{ssh_address} -p {port}" + " 'rm -r images"
     command_line = command_line + " && mkdir images && cp /FLIR/images/* ./images'"
     logging.info("Running command '" + command_line + "'")
     print(">> Running '" + command_line + "'...\n")
@@ -87,13 +89,14 @@ while (True):
       args = shlex.split(command_line)
       p1 = Popen(args, stdout = PIPE, stderr = PIPE)
       stdout,stderr = p1.communicate()
-      logging.info("ssh command for " + ssh_address_value + " successful...")
+      logging.info(f"ssh command for {ssh_address_value} successful...")
     except:
       error_message = error_report("ssh") + " - " + sys.exc_info()[0]
       logging.critical(error_message)
       error_flag = True
-    
-    command_line = "scp -P " + port + " -r fliruser@" + ssh_address + ":images " + storage_folder
+
+    command_line = (
+        f"scp -P {port} -r fliruser@{ssh_address}:images {storage_folder}")
     logging.info("Running command '" + command_line + "'")
     print(">> Running '" + command_line + "'...\n")
 
@@ -101,15 +104,16 @@ while (True):
       args = shlex.split(command_line)
       p2 = Popen(args, stdout = PIPE, stderr = PIPE)
       stdout,stderr = p2.communicate()
-      logging.info("scp command for " + ssh_address_value + " successful...")
+      logging.info(f"scp command for {ssh_address_value} successful...")
     except:
       error_message = error_report("scp") + " - " + sys.exc_info()[0]
       logging.critical(error_message)
       error_flag = True
 
-    if (error_flag == True):
+    if error_flag:
       print("Error ", sys.exc_info()[0] , " occured.")
       print("Check log file for details")
       print()
-  print(">> Waiting for " + str(time_to_sleep_between_captures) + " seconds...\n")      
+  print(f">> Waiting for {str(time_to_sleep_between_captures)}" +
+        " seconds...\n")
   time.sleep(time_to_sleep_between_captures)
